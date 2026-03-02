@@ -27,7 +27,7 @@ class User(db.Model, UserMixin):
         self.password_hash = generate_password_hash(password)
     def check_password(self ,password):
         # Verify the password against the stored hash
-        return check_password_hash(self.password_hash, password)
+        return check_password_hash(self.password_hash, password) # type: ignore
     def avatar(self,size):
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
         return f'https://www.gravatar.com/avatar/{digest}?d=identicon&s={size}'

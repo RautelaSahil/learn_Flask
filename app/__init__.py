@@ -9,7 +9,7 @@ import os
 
 app = Flask(__name__)
 login = LoginManager(app)
-login.login_view = 'login'
+login.login_view = 'login' # type: ignore
 #read config from Config class in config.py
 app.config.from_object(Config)
 db = SQLAlchemy(app)
